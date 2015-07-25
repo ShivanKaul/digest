@@ -1,4 +1,10 @@
-# Logs
+# Mac
+.DS_Store
+
+# Access token
+access_tokens
+
+# # Logs
 logs
 *.log
 
