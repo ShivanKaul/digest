@@ -6,6 +6,8 @@ var server = http.createServer(function (_, responseToSend) {
     responseToSend.writeHead(200, {"Content-Type": "text/plain"});
 
 
+
+    responseToSend.end("Hi!")
 });
 
 server.listen(process.env.PORT || 8080);
