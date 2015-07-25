@@ -1,4 +1,5 @@
 function sendEmail (fbResponse) {
+
     var sendgrid_username = process.env.SENDGRID_USERNAME
     var sendgrid_password = process.env.SENDGRID_PASSWORD;
     var from = "no-reply@fbdigest.com"
@@ -21,4 +22,5 @@ function sendEmail (fbResponse) {
         console.log(json);
     });
 }
+
 module.exports = sendEmail;

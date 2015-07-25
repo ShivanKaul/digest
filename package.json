@@ -5,6 +5,7 @@
     "start": "node js/server.js"
   },
   "dependencies": {
-    "sendgrid": "^1.9.2"
+    "sendgrid": "^1.9.2",
+    "cron": "^1.0.9"
   }
 }
