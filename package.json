@@ -4,8 +4,17 @@
   "scripts": {
     "start": "node js/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ShivanKaul/digest.git"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/ShivanKaul/digest/master/LICENSE"
+  },
   "dependencies": {
     "sendgrid": "^1.9.2",
+    "pg": "4.x",
     "cron": "^1.0.9"
   }
 }
