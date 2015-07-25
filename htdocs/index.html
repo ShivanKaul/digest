@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe to FB digest!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style>
+    .main{
+        margin:auto;
+        text-align: center;
+    }
+    form *{
+        font-size:3ch;
+    }
+</style>
+<script>
+    function verify(){
+        var email = document.getElementById('email_address').value;
+        var valid = true;
+        if (valid){
+            //dance
+        }else{
+            //cry
+        }
+    }
+</script>
+</head>
+<body>
+<div class='main'>
+    <div style='margin:auto'><h1>Subscribe to FB Digest to get daily digest emails from your facebook groups!</h1></div>
+<form action='/subscribe' method='post'>
+    <label for="email_address">Email Address:</label>
+    <input name='email_address' id='email_address'>
+<button type='submit'>Subscribe!</button>
+    <br/><br/><br/>
+    <h2>Currently we only support emails from the Group <a href="https://www.facebook.com/groups/hackathonhackers/">Hackathon Hackers</a></h2>
+</form>
+    </div>
+
+
+
+</body>
+</html>
