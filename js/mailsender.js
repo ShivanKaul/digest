@@ -7,12 +7,10 @@ function sendEmail (fbResponse, emails) {
     var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
     var email = new sendgrid.Email();
 
-    //email.setTos(emails);
-    email.addTo(emails[0]);
-    console.log("Sending to " + emails);
+    email.setTos(emails);
     email.setFrom(from);
     email.setSubject('Test');
-    email.setText("yo");
+    email.setText(fbResponse);
     email.addHeader('X-Sent-Using', 'SendGrid-API');
     email.addHeader('X-Transport', 'web');
 
