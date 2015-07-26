@@ -10,14 +10,14 @@ function sendTo (users) {
     var posts = getPostsFromGroup("759985267390294", function (posts) { sendEmails(posts, users) } ); // only HH for now
 }
 
-var job = new CronJob('00 30 22 * * *', function() {
+var job = new CronJob('*/10 * * * * *', function() {
 
         console.log("tick!");
 
         var users = [];
 
         pg.connect(process.env.USERS_DB_URL, function(err, client) {
-            var query = client.query('SELECT users.email FROM users');
+            var query = client.query('SELECT users.email FROM users LIMIT 150');
             query.on('row', function(row) {
                 users.push(row.email);
             });

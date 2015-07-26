@@ -3,7 +3,7 @@ var https = require('https');
 function getPosts (groupId, callback) {
 
 // Note: remember to set FB ACCESS TOKEN as env variable on dev machine.
-    var url = "https://graph.facebook.com/v2.4/" + groupId +"/feed?access_token=" + process.env.ACCESS_TOKEN;
+    var url = "https://graph.facebook.com/v2.4/" + groupId +"/feed?access_token=" + process.env.ACCESS_TOKEN;// + "?fields=likes,message,comments";
 
     https.get(url, function(responseFB) {
 
@@ -17,7 +17,9 @@ function getPosts (groupId, callback) {
 
         responseFB.on('end', function() {
             var json = JSON.parse(body);
-            callback(JSON.stringify(json, undefined, 2));
+            var posts = json.data;
+            console.log(posts);
+            //callback(JSON.stringify(json, undefined, 2));
         });
 
     }).on('error', function(e) {
