@@ -7,7 +7,7 @@ var pg = require('pg');
 function sendTo (users) {
 
     console.log("Got posts, about to send emails...");
-    var posts = getPostsFromGroup("1469290070036317", function (posts) { sendEmails(posts, users) } ); // only HH for now
+    var posts = getPostsFromGroup("759985267390294", function (posts) { sendEmails(posts, users) } );
     // HH : 759985267390294
     // SUM Hacks : 1469290070036317
 }
