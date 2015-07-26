@@ -13,17 +13,23 @@ function dummydata() {
 }
 
 function prettyHTML(data){
-    var all = '';
+
+    var all = '<h1 style="font-family: sans-serif; color:#3b5998 ">FB Digest</h1><br/><br/><br/>';
     for (var i= 0; i < data.length; i++) {
         if (data[i].message == undefined) {
             continue;
         }
-        var likes = data[i].likes.data.length;
+        var likes = data[i].likes;
+        var comments = data[i].comments;
         var likeString = likes.toString();
-
+        var com = comments.toString();
         if (likes == 25) {
             likeString = "25+"
         }
+        if (comments == 25){
+            com = "25+"
+        }
+
 
         var from = data[i].from.name;
         var fromId = data[i].from.id;
@@ -33,11 +39,16 @@ function prettyHTML(data){
         var linkParts = data[i].id.split('_');
         var link = 'https://www.facebook.com/groups/' + linkParts[0] + '/permalink/' + linkParts[1];
         var full = data[i].message.replace('/\n/','');
-        var div = '<div style="max-width: 500px; margin:auto">'+full;
-        var a = '<a href="'+ link +'">See Likes and Comments</a>';
-        all += '<div style="margin: auto; font-size: 14px; font-family: sans-serif; ">'+ div+'<br/>'+a+'</div><br/><br/></div>';
+
+        var div = '<div style="max-width: 500px">';
+        var fromTag = '<a href="'+ fromLink +'">'+from+'</a>';
+        div+=fromTag+<br/>;
+        div+=full;
+        var a = '<a href="'+ link +'">'+likeString +' Likes and ' + com + ' Comments</a>';
+        all += '<div style="font-size: 14px; font-family: sans-serif; ">'+ div+'<br/>'+a+'</div><br/><br/></div>';
     }
-    return all
+
+    return all;
 }
 
 module.exports={
