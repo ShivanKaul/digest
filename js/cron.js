@@ -17,6 +17,9 @@ var job = new CronJob('*/10 * * * * *', function() {
         var users = [];
 
         pg.connect(process.env.USERS_DB_URL, function(err, client) {
+            if (err) {
+                console.log("Error is " + err.message);
+            }
             var query = client.query('SELECT users.email FROM users LIMIT 150');
             query.on('row', function(row) {
                 users.push(row.email);
