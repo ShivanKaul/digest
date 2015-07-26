@@ -14,16 +14,25 @@ function dummydata() {
 
 function prettyHTML(data){
     var all = '';
-    for (var i= 0; i < data.length; i++){
+    for (var i= 0; i < data.length; i++) {
         if (data[i].message == undefined) {
-            console.log(i)
             continue;
         }
+        var likes = data[i].likes.data.length;
+        var likeString = likes.toString();
+
+        if (likes == 25) {
+            likeString = "25+"
+        }
+
+        var from = data[i].from.name;
+        var fromId = data[i].from.id;
+
+        var fromLink = 'https://facebook.com/' + fromId;
+
         var linkParts = data[i].id.split('_');
         var link = 'https://www.facebook.com/groups/' + linkParts[0] + '/permalink/' + linkParts[1];
         var full = data[i].message.replace('/\n/','');
-                //.replace('/\//','"')
-                //.replace("/\//'","'");
         var div = '<div style="max-width: 500px; margin:auto">'+full;
         var a = '<a href="'+ link +'">See Likes and Comments</a>';
         all += '<div style="margin: auto; font-size: 14px; font-family: sans-serif; ">'+ div+'<br/>'+a+'</div><br/><br/></div>';
