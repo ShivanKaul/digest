@@ -14,22 +14,24 @@ function dummydata() {
 
 function prettyHTML(data){
     var all = '';
-
     for (var i= 0; i < data.length; i++){
+        if (data[i].message == undefined) {
+            console.log(i)
+            continue;
+        }
         var linkParts = data[i].id.split('_');
-        var link = 'https://www.facebook.com/groups/' + linkParts[0] + '/permalink/'+linkParts[1];
-        var full = data[i].message.replace('\n','')
-                .replace('\\"','"')
-                .replace("\\'","'");
-        var div = '<div style="max-width: 500px; margin:auto">'+full+'\n';
-        var a = '<a href="'+link+'">See Likes and Comments</a>';
-        all += '<div style="margin: auto; font-size: 14px; font-family: sans-serif; ">\n'+ div+'<br/>'+a+'</div><br/><br/>\n</div>\n';
+        var link = 'https://www.facebook.com/groups/' + linkParts[0] + '/permalink/' + linkParts[1];
+        var full = data[i].message.replace('/\n/','');
+                //.replace('/\//','"')
+                //.replace("/\//'","'");
+        var div = '<div style="max-width: 500px; margin:auto">'+full;
+        var a = '<a href="'+ link +'">See Likes and Comments</a>';
+        all += '<div style="margin: auto; font-size: 14px; font-family: sans-serif; ">'+ div+'<br/>'+a+'</div><br/><br/></div>';
     }
-    return all;
+    return all
 }
 
 module.exports={
     'dummydata':dummydata,
     'getHTML':prettyHTML
-
 };

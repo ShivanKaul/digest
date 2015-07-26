@@ -1,4 +1,3 @@
-
 function sendEmail (fbResponse, emails) {
 
     var sendgrid_username = process.env.SENDGRID_USERNAME;
@@ -11,8 +10,8 @@ function sendEmail (fbResponse, emails) {
 
     email.setTos(emails);
     email.setFrom(from);
-    email.setSubject('Test');
-    email.setText(fbResponse);
+    email.setSubject('Your daily digest for HH');
+    email.setHtml(fbResponse);
     email.addHeader('X-Sent-Using', 'SendGrid-API');
     email.addHeader('X-Transport', 'web');
 

@@ -1,4 +1,5 @@
 var https = require('https');
+var prettify = require('./prettify');
 
 function getPosts (groupId, callback) {
 
@@ -18,8 +19,8 @@ function getPosts (groupId, callback) {
         responseFB.on('end', function() {
             var json = JSON.parse(body);
             var posts = json.data;
-            console.log(posts);
-            //callback(JSON.stringify(json, undefined, 2));
+            var prettyHTML = prettify.getHTML(posts);
+            callback(JSON.stringify(prettyHTML, undefined, 2));
         });
 
     }).on('error', function(e) {
