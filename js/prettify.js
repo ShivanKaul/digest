@@ -42,8 +42,8 @@ function prettyHTML(data){
 
         var div = '<div style="max-width: 500px">';
         var fromTag = '<a href="'+ fromLink +'">'+from+'</a>';
-        div+=fromTag+<br/>;
-        div+=full;
+        div += fromTag + "<br/>";
+        div += full;
         var a = '<a href="'+ link +'">'+likeString +' Likes and ' + com + ' Comments</a>';
         all += '<div style="font-size: 14px; font-family: sans-serif; ">'+ div+'<br/>'+a+'</div><br/><br/></div>';
     }

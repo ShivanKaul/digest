@@ -4,7 +4,7 @@ var prettify = require('./prettify');
 function getPosts (groupId, callback) {
 
 // Note: remember to set FB ACCESS TOKEN as env variable on dev machine.
-    var url = "https://graph.facebook.com/v2.4/" + groupId +"/feed?access_token=" + "CAACEdEose0cBAH5J4gQx6wWK4xuTROIplZAM7HHnpQazZCIq0jU23Tk0E24T2hzlfxtRNnS3ZCuKR6FvRARiuQe5mo3phWls7ZCMuHJUCtB49DW4UtCTFEjpulRgEgE5HnPkiUKnKAQF79KJdWJPJavsDxNWja7ZAvqmqZCPJhUxkVH6CBbR4pUWIw1T6mRMoexZBgHwrhLI7KZAW8waUTLB3cEgGZAT6cp0ZD" + "&fields=likes,from,comments,message";//process.env.ACCESS_TOKEN;//
+    var url = "https://graph.facebook.com/v2.4/" + groupId +"/feed?access_token=" + "CAACEdEose0cBAMhAT8Nn2KLO9pMA49oeZBbd22nJ9gWwlWr0Y8I0NuK61d1z6F0fYoMzKOnz8xt5yZBvksfxsb28MBaaQTlYtAOc3HZCfS4QMejXpb200pDg1bZA1iHKJFWzTnszaZCkZChJJAZC4VCUhOxf1EYSpcr6iIpAfISTT1ZB6NJ5Bq0ig7EKdInNnACxJmnXEfTdNgcb0BkL8qnK7Wl1fh5ZCwtYZD" + "&fields=likes,from,comments,message";//process.env.ACCESS_TOKEN;//
 
     https.get(url, function(responseFB) {
 
@@ -34,7 +34,7 @@ function getPosts (groupId, callback) {
             // Prettify
             var prettyHTML = prettify.getHTML(posts);
             // Send
-            //callback(prettyHTML);
+            callback(prettyHTML);
         });
 
     }).on('error', function(e) {

@@ -13,6 +13,10 @@ var server = http.createServer(function (req, responseToSend) {
         file = '/index.html';
     }
 
+    else if (file == '/authenticate') {
+        file = '/auth.html';
+    }
+
     if (req.method == 'POST') {
         var body = '';
         req.on('data', function (data) {
